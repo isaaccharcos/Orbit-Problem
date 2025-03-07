@@ -45,7 +45,6 @@ def separation_study(reference_orbit, target_separation, nu_initial):
         else:
             delta_v_high = delta_v
 
-    # Return the result
     return delta_v, separation
 
 # Constants
@@ -61,7 +60,7 @@ if __name__ == "__main__":
     a = (r_periapsis + r_apoapsis) / 2
     e = (r_apoapsis - r_periapsis) / (r_apoapsis + r_periapsis)
 
-    # Create an reference orbit object
+    # Create a reference orbit object
     reference_orbit = OrbitObject(a, e, MU_MOON)
 
     # Perform the separation study at periapsis
