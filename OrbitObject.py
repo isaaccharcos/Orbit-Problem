@@ -14,7 +14,7 @@ class OrbitObject:
         self.ra = self.a * (1 + self.e)  # Apoapsis radius
 
     def copy(self):
-        return OrbitalObject(self.a, self.e, self.mu)
+        return OrbitObject(self.a, self.e, self.mu)
         
     def get_radius(self, nu):
         r = self.a * (1 - self.e**2) / (1 + self.e * np.cos(nu))
