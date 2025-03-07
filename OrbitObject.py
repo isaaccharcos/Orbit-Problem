@@ -85,7 +85,7 @@ class OrbitObject:
         a_new = 1 / (2 / r - v_new**2 / self.mu)
 
         # Calculate new eccentricity
-        e_new = np.sqrt(1 - (r * v_new**2) / self.mu + (2 * r) / a_new)
+        e_new = np.sqrt(max(0, 1 - ((r * v_new)**2) / (a_new * self.mu)))
 
         # Reinitialize with new elements
         self.reset(a_new, e_new, self.mu)
