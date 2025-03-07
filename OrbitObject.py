@@ -61,9 +61,9 @@ class OrbitObject:
         
         return nu_t
 
-    def get_position_in_cartesian(self, nu):
+    def get_2D_position_vector(self, nu):
         """
-        Return position in cartesian (for calculating distances)
+        Return 2d position vector at given true anomaly
         """
         r = self.get_radius(nu)
         x = r * np.cos(nu)
