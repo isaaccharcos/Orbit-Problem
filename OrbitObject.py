@@ -39,7 +39,7 @@ class OrbitObject:
 
     def get_true_anomaly_after_time(self, t, nu_0=0):
         """
-        Return true anomaly after time elapsed starting initial true anomaly
+        Return true anomaly after time elapsed starting at given initial true anomaly
         """
         # Calculate initial eccentric anomaly
         E_0 = 2 * np.arctan(np.sqrt((1 - self.e) / (1 + self.e)) * np.tan(nu_0 / 2))
