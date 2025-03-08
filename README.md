@@ -20,7 +20,8 @@ If possible share the result in github.
 
 <img width="517" alt="Screenshot 2025-03-07 at 10 37 33 PM" src="https://github.com/user-attachments/assets/9b8f1b59-50a9-45ce-9b3c-2b5890b91360" />
 
-2.1 Given the latitude/longitude of the landing site, what are the conditions imposed on the orbit when preparing to land?
-The orbit must have an inclination greater than or equal to the latitude of the landing site.
+**2.1 Given the latitude/longitude of the landing site, what are the conditions imposed on the orbit when preparing to land?**
+
+The orbit must have an inclination greater than or equal to the latitude of the landing site. This is because the ground track will only span the latitudes between -i and i. For example, an equatorial orbit cannot land on a pole.
 
 2.2 About the CR3BP: what is the most efficient method to move from a L1 Halo to a L2 Halo orbit?
