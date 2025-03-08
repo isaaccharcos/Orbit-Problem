@@ -41,7 +41,7 @@ class OrbitObject:
 
     def get_escape_velocity(self, nu):
         """
-        Return escape velocity
+        Return escape velocity at given true anomaly
         """
         r = self.get_radius(nu)
         v_esc = np.sqrt(2 * self.mu / r)
