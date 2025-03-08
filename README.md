@@ -1,8 +1,8 @@
 # Problem description
-1. The following exercise aims to discuss the orbital dynamic topic but also the
+**1. The following exercise aims to discuss the orbital dynamic topic but also the
 python implementation. When implementing the solution, please create scripts, functions and/or classes
 as you see fit (favoring simplicity) as well as a few unit tests (pytest preferred).
-If possible share the result in github. 
+If possible share the result in github.**
 
 ```
 # Let's try to model the separation of an in-orbit satellite.
@@ -24,4 +24,5 @@ If possible share the result in github.
 
 The orbit must have an inclination greater than or equal to the latitude of the landing site. This is because the ground track will only span the latitudes between -i and i. For example, an equatorial orbit cannot land on a pole.
 
-2.2 About the CR3BP: what is the most efficient method to move from a L1 Halo to a L2 Halo orbit?
+**2.2 About the CR3BP: what is the most efficient method to move from a L1 Halo to a L2 Halo orbit?**
+
