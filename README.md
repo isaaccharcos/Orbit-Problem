@@ -26,3 +26,4 @@ The orbit must have an inclination greater than or equal to the latitude of the 
 
 **2.2 About the CR3BP: what is the most efficient method to move from a L1 Halo to a L2 Halo orbit?**
 
+The most efficient method to move from a L1 Halo to an L2 Halo is to utilize a heteroclinic transfer between an unstable L1 manifold and an L2 stable manifold.
