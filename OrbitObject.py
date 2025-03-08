@@ -93,7 +93,13 @@ class OrbitObject:
         TODO: Generalize for arbitrary true anomaly
         """
         # Assert burn is at periapsis or apoapsis
-        assert abs(nu % np.pi) <= 1E-9, "Burn can only happen at periapsis or apoapsis"
+        assert abs(nu % np.pi) <= 1E-9, "Burn can only happen at periapsis or apoapsis."
+
+        # Bound velocity between zero and escape velocity
+        max_delta_v = self.get_escape_velocity(nu) - self.get_speed(nu)  # delta_v required to escape
+        min_delta_v = -abs(self.get_speed(nu))
+        assert delta_v < max_delta_v, f"delta v is greater than {max_delta_v:.4f} km/s resulting in escape."
+        assert delta_v > min_delta_v, f"delta v is less than {min_delta_v:.4f} km/s resulting in zero speed."
 
         # Get current position and velocity at given true anomaly
         r = self.get_radius(nu)
