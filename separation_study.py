@@ -3,8 +3,6 @@ from OrbitObject import OrbitObject
 
 def separation_study(reference_orbit, target_separation, nu_initial):
     # Study parameters
-    delta_v_low = 0.0
-    delta_v_high = 5.0
     tolerance = 0.01
     max_iterations = 100
 
@@ -14,6 +12,10 @@ def separation_study(reference_orbit, target_separation, nu_initial):
 
     # Get time elapsed after one revolution
     time_elapsed = satellite1.get_period()
+
+    # Bisection method bounds
+    delta_v_low = 0.0
+    delta_v_high = reference_orbit.get_escape_velocity(nu_initial) - reference_orbit.get_speed(nu_initial)
 
     # Bisection method to find delta_v corresponding to target separation after time_elapsed
     for iteration in range(max_iterations):
