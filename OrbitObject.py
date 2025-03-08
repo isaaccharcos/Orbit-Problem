@@ -85,7 +85,7 @@ class OrbitObject:
         TODO: Generalize for arbitrary true anomaly
         """
         # Assert burn is at periapsis or apoapsis
-        assert abs(nu % np.pi) <= 1E9
+        assert abs(nu % np.pi) <= 1E-9, "Burn can only happen at periapsis or apoapsis"
 
         # Get current position and velocity at given true anomaly
         r = self.get_radius(nu)
