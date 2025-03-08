@@ -10,6 +10,9 @@ Assumptions:
 """
 
 def separation_study(reference_orbit, target_separation, nu_initial):
+    """
+    Use bisection method on delta_v using target_separation as passing criterion
+    """
     # Study parameters
     tolerance = 0.001 # km
     max_iterations = 100
@@ -30,7 +33,7 @@ def separation_study(reference_orbit, target_separation, nu_initial):
         delta_v = (delta_v_low + delta_v_high) / 2  # delta_v midpoint
         
         # Reset satellite2
-        satellite2.reset(satellite1.a, satellite1.e, satellite1.mu)  # consider adding setter method uncoupled from these arguments to increase modularity
+        satellite2.reset(satellite1.a, satellite1.e, satellite1.mu)  # TODO: consider adding setter method uncoupled from these arguments to increase modularity
 
         # Apply delta-v to satellite2
         satellite2.apply_delta_v(delta_v, nu_initial)
@@ -45,11 +48,11 @@ def separation_study(reference_orbit, target_separation, nu_initial):
         # Calculate separation distance
         separation = np.linalg.norm(pos1 - pos2)
 
-        # Check if the separation is close enough to the target
+        # Check if separation within tolerance of target
         if abs(separation - target_separation) < tolerance:
             break  # Found the delta_v that gives the desired separation
 
-        # Adjust the delta_v bounds for the next iteration
+        # Adjust delta_v bounds for next iteration
         if separation < target_separation:
             delta_v_low = delta_v
         else:
@@ -70,10 +73,10 @@ if __name__ == "__main__":
     a = (r_periapsis + r_apoapsis) / 2
     e = (r_apoapsis - r_periapsis) / (r_apoapsis + r_periapsis)
 
-    # Create a reference orbit object
+    # Create reference orbit object
     reference_orbit = OrbitObject(a, e, MU_MOON)
 
-    # Perform the separation study at periapsis
+    # Perform separation study at periapsis
     target_separation = 10  # km
     nu_initial = 0  # rad
     delta_v, separation = separation_study(reference_orbit, target_separation, nu_initial)
@@ -83,7 +86,7 @@ if __name__ == "__main__":
     print(f"Separation distance achieved: {separation:.4f} km")
     print(f"")
   
-    # Perform the separation study at apoapsis
+    # Perform separation study at apoapsis
     target_separation = 10  # km
     nu_initial = np.pi  # rad
     delta_v, separation = separation_study(reference_orbit, target_separation, nu_initial)
