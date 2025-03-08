@@ -31,6 +31,14 @@ class OrbitObject:
         v = np.sqrt(self.mu * (2 / r - 1 / self.a))  # Vis-viva equation
         return v
 
+    def get_escape_velocity(self, nu):
+        """
+        Return escape velocity
+        """
+        r = self.get_radius(nu)
+        v_esc = np.sqrt(2 * self.mu / r)
+        return v_esc
+
     def get_period(self):
         """
         Return orbital period
