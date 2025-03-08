@@ -11,7 +11,7 @@ Assumptions:
 
 def separation_study(reference_orbit, target_separation, nu_initial):
     # Study parameters
-    tolerance = 0.01
+    tolerance = 0.001 # km
     max_iterations = 100
 
     # Instantiate two satellites using reference orbit
