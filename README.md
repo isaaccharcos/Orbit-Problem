@@ -1,3 +1,10 @@
+# Instructions
+`pip install -r requirements.txt`
+
+`python separation_study.py`
+
+`pytest`
+
 # Problem description
 **1. The following exercise aims to discuss the orbital dynamic topic but also the
 python implementation. When implementing the solution, please create scripts, functions and/or classes
@@ -18,7 +25,12 @@ If possible share the result in github.**
  ```
 **Result:**
 
-<img width="517" alt="Screenshot 2025-03-07 at 10 37 33 PM" src="https://github.com/user-attachments/assets/9b8f1b59-50a9-45ce-9b3c-2b5890b91360" />
+<img width="545" alt="image" src="https://github.com/user-attachments/assets/f7c81829-21dd-43ac-b89a-1260f1fbdf93" />
+<img width="1059" alt="image" src="https://github.com/user-attachments/assets/27b84e26-e9ee-410e-ac35-ce215666052c" />
+
+Minimum delta v required to achieve desired separation occurs at periapsis. Burning at periapsis requires less fuel usage than burning at apoapsis. This is supported by unit test:
+
+https://github.com/isaaccharcos/Orbit-Problem/blob/d0397dd34356b62cea967c4677c88287007ed1fa/test_separation_study.py#L36C1-L47C1
 
 **2.1 Given the latitude/longitude of the landing site, what are the conditions imposed on the orbit when preparing to land?**
 
