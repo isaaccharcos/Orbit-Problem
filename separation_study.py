@@ -9,13 +9,14 @@ Assumptions:
 - Prograde tangential burn only at periapsis or apoapsis
 """
 
+# Study parameters
+STUDY_TOLERANCE = 0.001  # km
+MAX_ITER = 100
+
 def separation_study(reference_orbit, target_separation, nu_initial):
     """
     Use bisection method on delta_v using target_separation as passing criterion
     """
-    # Study parameters
-    tolerance = 0.001 # km
-    max_iterations = 100
 
     # Instantiate two satellites using reference orbit
     satellite1 = reference_orbit.copy()
@@ -29,7 +30,7 @@ def separation_study(reference_orbit, target_separation, nu_initial):
     delta_v_high = reference_orbit.get_escape_velocity(nu_initial) - reference_orbit.get_speed(nu_initial)
 
     # Bisection method to find delta_v corresponding to target separation after time_elapsed
-    for iteration in range(max_iterations):
+    for iteration in range(MAX_ITER):
         delta_v = (delta_v_low + delta_v_high) / 2  # delta_v midpoint
         
         # Reset satellite2
@@ -49,7 +50,7 @@ def separation_study(reference_orbit, target_separation, nu_initial):
         separation = np.linalg.norm(pos1 - pos2)
 
         # Check if separation within tolerance of target
-        if abs(separation - target_separation) < tolerance:
+        if abs(separation - target_separation) < STUDY_TOLERANCE:
             break  # Found the delta_v that gives the desired separation
 
         # Adjust delta_v bounds for next iteration
