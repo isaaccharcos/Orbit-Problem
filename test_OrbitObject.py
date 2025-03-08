@@ -2,6 +2,10 @@ import pytest
 import numpy as np
 from OrbitObject import OrbitObject
 
+"""
+Unit test script of methods in OrbitObject class.
+"""
+
 # Constants
 R_MOON = 1737.4  # Moon radius in km
 MU_MOON = 4902.8  # Moon gravitational parameter in km^3/s^2
