@@ -67,14 +67,18 @@ if __name__ == "__main__":
     target_separation = 10  # km
     nu_initial = 0  # rad
     delta_v, separation = separation_study(reference_orbit, target_separation, nu_initial)
-    print(f"Required delta v to achieve separation distance of {target_separation} km: {delta_v:.4f} km/s")
+    delta_v *= 1000
+    print(f"Periapsis burn:")
+    print(f"Required delta v to achieve separation distance of {target_separation} km: {delta_v:.4f} m/s")
     print(f"Separation distance achieved: {separation:.4f} km")
-    print(f"Orbital period (satellite 1): {reference_orbit.get_period():.2f} seconds")
-
+    print(f"")
+  
     # Perform the separation study at apoapsis
     target_separation = 10  # km
     nu_initial = np.pi  # rad
     delta_v, separation = separation_study(reference_orbit, target_separation, nu_initial)
-    print(f"Required delta v to achieve separation distance of {target_separation} km: {delta_v:.4f} km/s")
+    delta_v *= 1000
+    print(f"Apoapsis burn:")
+    print(f"Required delta v to achieve separation distance of {target_separation} km: {delta_v:.4f} m/s")
     print(f"Separation distance achieved: {separation:.4f} km")
-    print(f"Orbital period (satellite 1): {reference_orbit.get_period():.2f} seconds")
+    print(f"")
