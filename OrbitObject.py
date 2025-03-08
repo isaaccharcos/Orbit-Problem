@@ -1,6 +1,14 @@
 import numpy as np
 from scipy.optimize import fsolve
 
+"""
+Orbit object class intended to store, modify, and return orbital elements and parameters.
+
+Assumptions:
+- 2D Keplerian orbit
+- Prograde tangential burn only at periapsis or apoapsis
+"""
+
 class OrbitObject:
     def __init__(self, a, e, mu):
         self.reset(a, e, mu)

@@ -1,6 +1,14 @@
 import numpy as np
 from OrbitObject import OrbitObject
 
+"""
+Script to determine minimum delta v required to achieve a specified separation distance after one revolution.
+
+Assumptions:
+- 2D Keplerian orbit
+- Prograde tangential burn only at periapsis or apoapsis
+"""
+
 def separation_study(reference_orbit, target_separation, nu_initial):
     # Study parameters
     tolerance = 0.01
