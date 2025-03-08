@@ -19,6 +19,11 @@ If possible share the result in github.**
 **Result:**
 
 <img width="517" alt="Screenshot 2025-03-07 at 10 37 33 PM" src="https://github.com/user-attachments/assets/9b8f1b59-50a9-45ce-9b3c-2b5890b91360" />
+<img width="1059" alt="image" src="https://github.com/user-attachments/assets/7a72ad27-3c21-435e-a9a3-46117b1cbc89" />
+
+Minimum delta v required to achieve desired separation occurs at periapsis. Burning at periapsis requires less fuel usage than burning at apoapsis. This is supported by unit test:
+
+https://github.com/isaaccharcos/Orbit-Problem/blob/d0397dd34356b62cea967c4677c88287007ed1fa/test_separation_study.py#L36C1-L47C1
 
 **2.1 Given the latitude/longitude of the landing site, what are the conditions imposed on the orbit when preparing to land?**
 
