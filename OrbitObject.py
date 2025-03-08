@@ -73,7 +73,12 @@ class OrbitObject:
     def apply_delta_v(self, delta_v, nu):
         """
         Apply delta v at a given true anomaly and update member orbital elements
+        NOTE: This funciton is currently only valid for periapsis and apoapsis burns
+        TODO: Generalize for arbitrary true anomaly
         """
+        # Assert burn is at periapsis or apoapsis
+        assert abs(nu % np.pi) <= 1E9
+
         # Get current position and velocity at given true anomaly
         r = self.get_radius(nu)
         v_initial = self.get_speed(nu)
@@ -85,7 +90,7 @@ class OrbitObject:
         a_new = 1 / (2 / r - v_new**2 / self.mu)
 
         # Calculate new eccentricity
-        e_new = np.sqrt(max(0, 1 - ((r * v_new)**2) / (a_new * self.mu)))
+        e_new = np.sqrt(max(0, 1 - ((r * v_new)**2) / (a_new * self.mu)))  # only valid for periapsis and apoapsis
 
         # Reinitialize with new elements
         self.reset(a_new, e_new, self.mu)
